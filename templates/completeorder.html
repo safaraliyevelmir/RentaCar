@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fa8a01" />
+
+    <title>Rent a Car</title>
+
+    <link
+      media="all"
+      type="text/css"
+      rel="stylesheet"
+      href="./css/bootstrap.min.css"
+    />
+    <link
+      media="all"
+      type="text/css"
+      rel="stylesheet"
+      href="./css/bootstrap-datetimepicker.css"
+    />
+
+    <link
+      media="all"
+      type="text/css"
+      rel="stylesheet"
+      href="./css/freelancer.css"
+    />
+    <link media="all" type="text/css" rel="stylesheet" href="./css/style.css" />
+
+    <link
+      media="all"
+      type="text/css"
+      rel="stylesheet"
+      href="./css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jqBootstrapValidation.js"></script>
+    <script src="./js/contact_me.js"></script>
+    <script src="./js/freelancer.min.js"></script>
+    <script src="./js/jquery.navgoco.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/bootstrap-datetimepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  </head>
+
+  <body id="page-top" class="index">
+    <nav class="own">
+      <ul class="list-unstyled main-menu">
+        <li>
+          <div class="row text-right">
+            <div class="col-xs-8">
+              <a href="//127.0.0.1:5500" class="ownLogoColor">AUTOMILE</a>
+            </div>
+            <div class="col-xs-4"><a href="#" id="nav-close">X</a></div>
+          </div>
+        </li>
+
+        <li>
+          <a href="#" class="displayBlock">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHfSURBVHjaYmSYeJzhxx8GCPjHwPDnH8O/PwxAgT9/QGwI+QvM+PWHgYUJIIBYGL78qXZVBCn+D0T///7/D1Tw99+/PyDGPyD7918g+e/3v/+///7fNPMYQACxMHBxMTCzPPkKFGcAqv7979/fv0C5v7//M4AU/fv/6++/X0ANf//JcrMxsPEABBDjYUZGpUmTfr14+f/fX4a/QNP+/P/z5x8Y/f/9G8QAkr9/AwXZJCQOzZwJEEAsDExMIPcBTfz7l+H3n78/votFRbFKSX/cf4BVXvbj4cPfrl79/xuo//f/37+YGBgAAogJ6AKQ64HEn79///xhV1RmVVB83NPDZWTILqfAqav3FywOJP8BlTAwAAQQUA8DIyQEfv1h/P3355VrP+/el0xLe79m7Y+7d7+eOMX48w8jUOonSAEwFAECiOUXA9Dlf0Ce/Auy9x/T/2dzZv3/9fvf3z8frl4BeQAi9e8P878/XxgYAAKIxbWWIc3m773Pf3//BSr/++vvn19/f/0GQqC3/v35BTID5KA///6q8P+7+JABIIBYGD4x/P79R5JN5PdfcNCAtP35zfoHbB3Y/SDPAYP679+ffxneMQAEECNDKQNQDyhqf8HQHyTGHxjjH5jkYQAIMACu3GUPfyOdVwAAAABJRU5ErkJggg=="
+              alt="Azəri"
+              title="Azəri"
+            />
+            az
+          </a>
+          <ul class="list-unstyled">
+            <li role="seperator" class="divider"></li>
+            <li class="sub-nav">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHfSURBVHjaYmSYeJzhxx8GCPjHwPDnH8O/PwxAgT9/QGwI+QvM+PWHgYUJIIBYGL78qXZVBCn+D0T///7/D1Tw99+/PyDGPyD7918g+e/3v/+///7fNPMYQACxMHBxMTCzPPkKFGcAqv7979/fv0C5v7//M4AU/fv/6++/X0ANf//JcrMxsPEABBDjYUZGpUmTfr14+f/fX4a/QNP+/P/z5x8Y/f/9G8QAkr9/AwXZJCQOzZwJEEAsDExMIPcBTfz7l+H3n78/votFRbFKSX/cf4BVXvbj4cPfrl79/xuo//f/37+YGBgAAogJ6AKQ64HEn79///xhV1RmVVB83NPDZWTILqfAqav3FywOJP8BlTAwAAQQUA8DIyQEfv1h/P3355VrP+/el0xLe79m7Y+7d7+eOMX48w8jUOonSAEwFAECiOUXA9Dlf0Ce/Auy9x/T/2dzZv3/9fvf3z8frl4BeQAi9e8P878/XxgYAAKIxbWWIc3m773Pf3//BSr/++vvn19/f/0GQqC3/v35BTID5KA///6q8P+7+JABIIBYGD4x/P79R5JN5PdfcNCAtP35zfoHbB3Y/SDPAYP679+ffxneMQAEECNDKQNQDyhqf8HQHyTGHxjjH5jkYQAIMACu3GUPfyOdVwAAAABJRU5ErkJggg=="
+                alt="Azəri"
+                title="Azəri"
+              />
+              <a href="//127.0.0.1:5500">AZ <span class="icon"></span></a>
+            </li>
+            <li class="sub-nav">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYvz69T8DAvz79w9CQVj/0MCffwwAAcQClObiAin6/x+okxHMgPCAbOb//5n+I4EXL74ABBALxGSwagTjPzbAyMgItAQggBg9Pf9nZPx//x7kjL9////9C2QAyf9//qCQQCQkxFhY+BEggFi2b/+nq8v46BEDSPQ3w+8//3//BqFfv9BJeXmQEwACCOSkP38YgHy4Bog0RN0vIOMXVOTPH6Cv/gEEEEgDxFKgHEgDXCmGDUAE1AAQQCybGZg1f/d8//XsH0jTn3+///z79RtE/v4NZfz68xfI/vOX+4/0ZoZFAAHE4gYMvD+3/v2+h91wCANo9Z+/jH9VxBkYAAKIBRg9TL//MEhKAuWAogxgZzGC2CCfgUggAoYdGAEVAwQQ41egu5AQAyoXTQoIAAIMAD+JZR7YOGEWAAAAAElFTkSuQmCC"
+                alt="Русский"
+                title="Русский"
+              />
+              <a href="#">RU <span class="icon"></span></a>
+            </li>
+            <li class="sub-nav">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAflJREFUeNpinDRzn5qN3uFDt16+YWBg+Pv339+KGN0rbVP+//2rW5tf0Hfy/2+mr99+yKpyOl3Ydt8njEWIn8f9zj639NC7j78eP//8739GVUUhNUNuhl8//ysKeZrJ/v7z10Zb2PTQTIY1XZO2Xmfad+f7XgkXxuUrVB6cjPVXef78JyMjA8PFuwyX7gAZj97+T2e9o3d4BWNp84K1NzubTjAB3fH0+fv6N3qP/ir9bW6ozNQCijB8/8zw/TuQ7r4/ndvN5mZgkpPXiis3Pv34+ZPh5t23//79Rwehof/9/NDEgMrOXHvJcrllgpoRN8PFOwy/fzP8+gUlgZI/f/5xcPj/69e/37//AUX+/mXRkN555gsOG2xt/5hZQMwF4r9///75++f3nz8nr75gSms82jfvQnT6zqvXPjC8e/srJQHo9P9fvwNtAHmG4f8zZ6dDc3bIyM2LTNlsbtfM9OPHH3FhtqUz3eXX9H+cOy9ZMB2o6t/Pn0DHMPz/b+2wXGTvPlPGFxdcD+mZyjP8+8MUE6sa7a/xo6Pykn1s4zdzIZ6///8zMGpKM2pKAB0jqy4UE7/msKat6Jw5mafrsxNtWZ6/fjvNLW29qv25pQd///n+5+/fxDDVbcc//P/zx/36m5Ub9zL8+7t66yEROcHK7q5bldMBAgwADcRBCuVLfoEAAAAASUVORK5CYII="
+                alt="English"
+                title="English"
+              />
+              <a href="#">EN <span class="icon"></span></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="//127.0.0.1:5500" class="menu-close"
+            >Ana səhifə <span class="icon"></span
+          ></a>
+        </li>
+        <li>
+          <a href="#class" class="menu-close"
+            >Klass <span class="icon"></span
+          ></a>
+        </li>
+
+        <li>
+          <a href="//127.0.0.1:5500/conditions.html" class="menu-close"
+            >Şərtlər <span class="icon"></span
+          ></a>
+        </li>
+        <li>
+          <a href="#about" class="menu-close"
+            >Haqqımızda <span class="icon"></span
+          ></a>
+        </li>
+        <li>
+          <a href="#contact" class="menu-close"
+            >Əlaqə <span class="icon"></span
+          ></a>
+        </li>
+        <li role="seperator" class="divider"></li>
+        <li class="SocialLi">
+          <div class="row">
+            <div class="col-xs-2">
+              <a href="#">
+                <i class="fa fa-2x fa-facebook"></i>
+              </a>
+            </div>
+            <div class="col-xs-2">
+              <a href="#"><i class="fa fa-2x fa-twitter"></i> </a>
+            </div>
+            <div class="col-xs-2">
+              <a href="h#"><i class="fa fa-2x fa-instagram"></i> </a>
+            </div>
+            <div class="col-xs-2">
+              <a href="#">
+                <i class="fa fa-2x fa-google-plus"></i>
+              </a>
+            </div>
+            <div class="col-xs-2">
+              <a href="#">
+                <i class="fa fa-2x fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <nav
+      id="mainNav"
+      class="navbar navbar-default navbar-fixed-top navbar-custom"
+    >
+      <div class="container">
+        <div class="navbar-header page-scroll">
+          <button
+            type="button"
+            id="nav-expander"
+            class="navbar-toggle nav-expander"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="//127.0.0.1:5500"
+            ><img
+              class="logoImage"
+              src="./img/logoautomile3.png"
+              alt="Automile Logo"
+          /></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden">
+              <a href="./index.html#page-top"></a>
+            </li>
+            <li class="page-scroll"><a href="./index.html#">Ana səhifə</a></li>
+            <li class="page-scroll">
+              <a href="./index.html#class">Klass</a>
+            </li>
+
+            <li class="page-scroll">
+              <a href="//127.0.0.1:5500/conditions.html">Şərtlər</a>
+            </li>
+            <li class="page-scroll">
+              <a href="./index.html#about">Haqqımızda</a>
+            </li>
+            <li class="page-scroll">
+              <a href="./index.html#contact">Əlaqə</a>
+            </li>
+            <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHfSURBVHjaYmSYeJzhxx8GCPjHwPDnH8O/PwxAgT9/QGwI+QvM+PWHgYUJIIBYGL78qXZVBCn+D0T///7/D1Tw99+/PyDGPyD7918g+e/3v/+///7fNPMYQACxMHBxMTCzPPkKFGcAqv7979/fv0C5v7//M4AU/fv/6++/X0ANf//JcrMxsPEABBDjYUZGpUmTfr14+f/fX4a/QNP+/P/z5x8Y/f/9G8QAkr9/AwXZJCQOzZwJEEAsDExMIPcBTfz7l+H3n78/votFRbFKSX/cf4BVXvbj4cPfrl79/xuo//f/37+YGBgAAogJ6AKQ64HEn79///xhV1RmVVB83NPDZWTILqfAqav3FywOJP8BlTAwAAQQUA8DIyQEfv1h/P3355VrP+/el0xLe79m7Y+7d7+eOMX48w8jUOonSAEwFAECiOUXA9Dlf0Ce/Auy9x/T/2dzZv3/9fvf3z8frl4BeQAi9e8P878/XxgYAAKIxbWWIc3m773Pf3//BSr/++vvn19/f/0GQqC3/v35BTID5KA///6q8P+7+JABIIBYGD4x/P79R5JN5PdfcNCAtP35zfoHbB3Y/SDPAYP679+ffxneMQAEECNDKQNQDyhqf8HQHyTGHxjjH5jkYQAIMACu3GUPfyOdVwAAAABJRU5ErkJggg=="
+                  alt="Azəri"
+                  title="Azəri" />
+                az
+                <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="//127.0.0.1:5500">AZ</a></li>
+                <li><a href="#">RU</a></li>
+                <li><a href="#">EN</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="class">
+      <div class="container">
+        <div class="row martop">
+          <div class="col-lg-12 text-center">
+            <h2>Sizin sorğunuz yoxlanış üçün qəbul olundu</h2>
+            <h3>
+              Bizi seçdiyiniz üçün minnətdarıq. Sizə xoş istirahətlər arzu
+              edirik
+            </h3>
+            <br />
+            <p>Qısa bir zamanda sizinlə əlaqə saxlanılacaq</p>
+          </div>
+        </div>
+        <div class="row"></div>
+      </div>
+    </section>
+
+    <footer class="text-center" style="padding-bottom: 50px !important">
+      <div class="footer-above">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col col-md-4">
+              <h3>Ünvan</h3>
+              <p>
+                Baku, Azerbaijan
+                <br />
+              </p>
+            </div>
+            <div class="footer-col col-md-4">
+              <h3>Bizi internetdə tap</h3>
+              <ul class="list-inline">
+                <li>
+                  <a href="#" class="btn-social btn-outline">
+                    <i class="fa fa-fw fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="btn-social btn-outline">
+                    <i class="fa fa-fw fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="btn-social btn-outline">
+                    <i class="fa fa-fw fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="btn-social btn-outline">
+                    <i class="fa fa-fw fa-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col col-md-4">
+              <h3>Əlaqə</h3>
+              <p><strong>+994 55 555 55 55</strong></p>
+              <p><strong>+994 77 777 77 77</strong></p>
+              <p><strong>+994 99 999 99 99</strong></p>
+              <p>
+                <strong>
+                  <a href="mailto:support@rentacar.az"
+                    ><span>support@rentacar.az</span></a
+                  ></strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-below">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              &copy;&nbsp;2021 Rent a Car<br />
+              <a href="//127.0.0.1:5500">
+                <h4>Avtomobil kirayəsi, kirayə maşın, icarə</h4>
+              </a>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div
+      class="modal fade"
+      id="phoneModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="phoneModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">
+              Telefonunuz daxil edin, biz sizə zəng edək
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <span class="input-group-addon" id="name_modal"
+                ><span class="glyphicon glyphicon-user"></span
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ad"
+                aria-describedby="name_modal"
+                name="name_modal"
+              />
+            </div>
+            <br />
+            <div class="input-group">
+              <span class="input-group-addon" id="phone_modal"
+                ><span class="glyphicon glyphicon-earphone"></span
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Telefon"
+                aria-describedby="phone_modal"
+                name="phone_modal"
+              />
+            </div>
+            <br />
+            <div class="input-group">
+              <span class="input-group-addon" id="email_modal">@</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                aria-describedby="phone_modal"
+                name="email_modal"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Bağla
+            </button>
+            <button type="button" class="btn btn-primary btn-callme">
+              Biz zəng edək
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_call_effect">
+      <div
+        class="set_left text-center text-line-height-60 visible-xs visible-sm"
+      >
+        <a href="tel:+994502320026">
+          <p><i class="fa fa-phone"></i>&nbsp; <b>Zəng et</b></p>
+          <p></p
+        ></a>
+      </div>
+      <div
+        class="set_left text-center text-line-height-60 visible-md visible-lg"
+      >
+        <p id="openPhoneModal">
+          <i class="fa fa-phone"></i>&nbsp;
+          <b>+994 55 555 55 55 - Biz zəng edək </b>
+        </p>
+        <p></p>
+      </div>
+
+      <div class="img_call_center">
+        <img
+          src="./img/img_avatar.png"
+          alt="Avatar"
+          class="set_image_center"
+          id="pulse"
+        />
+      </div>
+      <div class="set_right text-center text-line-height-60">
+        <a href="https://api.whatsapp.com/send?phone=994555555555&text=Salam">
+          <p><i class="fa fa-whatsapp"></i>&nbsp; <b>Whatsapp</b></p>
+        </a>
+      </div>
+    </div>
+    <div style="position: fixed; top: 100px; right: 10px; z-index: 9">
+      <div class="currency_reflection" style="font-size: 1.5rem">
+        <span class="fa-stack fa-lg" style="color: orange">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-usd fa-stack-1x fa-inverse"></i>
+        </span>
+      </div>
+      <div class="currency_widget" style="display: none">
+        <div id="gcw_mainFvwnJYbNu" class="gcw_mainFvwnJYbNu"></div>
+        <script>
+          function reloadFvwnJYbNu() {
+            var sc = document.getElementById("scFvwnJYbNu");
+            if (sc) sc.parentNode.removeChild(sc);
+            sc = document.createElement("script");
+            sc.type = "text/javascript";
+            sc.charset = "UTF-8";
+            sc.async = true;
+            sc.id = "scFvwnJYbNu";
+            sc.src =
+              "https://freecurrencyrates.com/en/widget-vertical-editable?iso=AZNUSDEURRUBAEDTRY&df=2&p=FvwnJYbNu&v=fis&source=fcr&width=245&width_title=0&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=&tzo=-240";
+            var div = document.getElementById("gcw_mainFvwnJYbNu");
+            div.parentNode.insertBefore(sc, div);
+          }
+
+          reloadFvwnJYbNu();
+        </script>
+      </div>
+    </div>
+
+    <script src="./js/custom.js"></script>
+    <script>
+      $("select.PickUpAddressTransfer")
+        .children()
+        .each(function () {
+          $(this)
+            .siblings("[value='" + this.value + "']")
+            .remove();
+        });
+
+      $("select.DropOffAddressTransfer")
+        .children()
+        .each(function () {
+          $(this)
+            .siblings("[value='" + this.value + "']")
+            .remove();
+        });
+
+      $("select.PickUpAddressTransfer").change(function () {
+        $("select.DropOffAddressTransfer").val(
+          $("select.DropOffAddressTransfer option:first").val()
+        );
+        $("select.DropOffAddressTransfer").children("option").show();
+        $("select.DropOffAddressTransfer")
+          .children("option[value=" + $(this).val() + "]")
+          .hide();
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $.ajaxSetup({
+          headers: {
+            "X-CSRF-TOKEN": $('input[name="_token"]').val(),
+          },
+        });
+
+        //setTimeout(showModal, 60000);
+
+        function showModal() {
+          $("#phoneModal").modal("show");
+        }
+
+        $(".btn-callme").on("click", function (e) {
+          e.preventDefault();
+          var phone = $('input[name="phone_modal"]').val();
+          var email = $('input[name="email_modal"]').val();
+          var name = $('input[name="name_modal"]').val();
+          $.ajax({
+            url: "az/send/phone",
+            method: "POST",
+            data: {
+              phone: phone,
+              email: email,
+              name: name,
+            },
+            beforeSend: function () {
+              if (name.length == 0) {
+                $('input[name="name_modal"]').css("border", "1px solid red");
+                return false;
+              }
+
+              if (email.length == 0) {
+                $('input[name="email_modal"]').css("border", "1px solid red");
+                return false;
+              }
+
+              if (phone.length == 0) {
+                $('input[name="phone_modal"]').css("border", "1px solid red");
+                return false;
+              }
+            },
+            success: function () {},
+            error: function () {},
+            complete: function () {
+              $("#phoneModal").modal("hide");
+            },
+          });
+        });
+
+        $("#openPhoneModal").on("click", function () {
+          $("#phoneModal").modal("show");
+        });
+
+        $(".currency_reflection").on("click", function () {
+          $(".currency_widget").slideToggle();
+
+          $(".gcw_headerFvwnJYbNu").remove();
+          $(".gcw_sourceFvwnJYbNu").remove();
+        });
+      });
+    </script>
+  </body>
+</html>

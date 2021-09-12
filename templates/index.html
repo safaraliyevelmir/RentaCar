@@ -1,0 +1,498 @@
+{% extends 'base.html' %}
+
+
+{% block css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock css %}
+
+{% block content %}
+
+
+<header>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="intro-text text-center">
+                  <h1><span class="name" style="font-size: 4rem">Bakıda avtomobil icarəsi</span></h1>
+              </div>
+              <form method="#" action="" accept-charset="UTF-8">
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-10 reserv-form text-left">
+                        <div class="reserve-header">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p>İcarə et</p>
+                                </div>
+                                <div class="col-sm-6" style="padding-left: 35px;">
+                                    <div class="radio" style="margin-bottom: 15px;">
+                                        <input class="renttype" type="radio" name="forTransfer" value="off"
+                                            checked="checked">
+                                        <label>
+                                            İcarə
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group col-md-6 pickupRent">
+                                <label>Ünvan</label>
+                                <div class="input-group">
+                                    <select class="form-control" name="PickUpAddress">
+                                        <option value='Office'>Ofis</option>
+                                        <option value='Airport'>Hava limanı</option>
+                                        <option value='Inside_City'>Şəhər daxili</option>
+                                    </select>
+                                    <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Tarix</label>
+                                <div class='input-group date' id='datetimepickerPickUpDate'>
+                                    <input type='text' class="form-control" id="datepickerPickUpDate"
+                                        name="PickUpDate" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Vaxt</label>
+                                <div class='input-group date' id='datetimepickerPickUpTime'>
+                                    <input type='text' class="form-control" id="datepickerPickUpTime"
+                                        name="PickUpTime" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 pickupRent">
+                                <label>Təhvil məkanı</label>
+                                <div class="input-group">
+                                    <select class="form-control" name="DropOffAddress">
+                                        <option value='Office'>Ofis</option>
+                                        <option value='Airport'>Hava limanı</option>
+                                        <option value='Inside_City'>Şəhər daxili</option>
+                                    </select>
+                                    <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 dropoff" style="display: none;">
+                                <div class="">
+                                    <label>Hara</label>
+                                    <div class="input-group">
+                                        <select class="form-control DropOffAddressTransfer"
+                                            name="DropOffAddressTransfer">
+                                            <option value=''></option>
+                                        </select>
+                                        <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                                <div class="dropoffdate">
+                                    <label>Təhvil tarixi</label>
+                                    <div class='input-group date' id='datetimepickerDropOffDate'>
+                                        <input type='text' class="form-control" id="datepickerDropOffDate"
+                                            name="DropOffDate" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <div class="dropofftime">
+                                    <label>Təhvil vaxtı</label>
+                                    <div class='input-group date' id='datetimepickerDropOffTime'>
+                                        <input type='text' class="form-control" id="datepickerDropOffTime"
+                                            name="DropOffTime" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group pull-right">
+                                    <!-- a tagin button ele ve href attributun sil yeterlidi -->
+                                    <a href="{% url 'car' %}" class="btn btn-warning" type="submit"
+                                        style="padding: 10px 75px; color:#000;">
+                                        <h5><i class="fa fa-binoculars"></i> &nbsp;&nbsp;İcarə et</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <h2>Kirayə maşınlar</h2>
+                                <p style="font-size: 14px;">İstənilən sosial statusa malik hər bir insanın
+                                    avtomobilə ehtiyacı vardır. Avtomobil işgüzar və şəxsi görüşlərə zamana
+                                    qənaət edir, gündəlik rahatlığı təmin edir və insanın imicinin ayrılmaz
+                                    hissəsinə çevrilir.
+                                    Siz avto kirayə etməklə marşrut xəttini istəyinizə uyğun seçə və ya
+                                    qurmağınız imkanına maliksiniz. Biz sizə Bakıda 24 saat avtomobil kirayəsini
+                                    təklif edirik. Siz aşağıdakı hallarda avtomobil kirayə xidmətindən
+                                    istifadə etmək imkanınız var:
+                                </p>
+                                <ul>
+                                    <li>Toy və ya korporativlərdə bayram korteclərə avto kirayəsi </li>
+                                    <li>Şirkətin qonaqları və ya tərəfdaşlarını qarşılamaqçün maşın kirayəsi
+                                    </li>
+                                    <li>İstənilən işgüzar səfərlər, konfranslar zamanı xidmət göstərmək üçün
+                                        maşın kirayəsi </li>
+                                    <li>Keyfiyyətli ailəvi istirahətlərə avtomobil kirayəsi </li>
+                                    <li>Şəhər üzrə turistik səfərlər və ekskursiyalara avto kirayəsi </li>
+                                    <li>Şəxsi avtomobili nasaz vəziyyətdə olan və ya avtomobilsiz olan şəhər
+                                        sakinlərinin rahat hərəkət etməsi üçün kirayə avtomobil sifarişi </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</header>
+
+<section id="class">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2>Avtomobil kirayəsi üçün ən aşağı qiymtlər</h2>
+              <h2>Öz klassını seç</h2>
+          </div>
+      </div>
+      <div class="row">
+          <div class="type-of-vehicle clearfix">
+            
+            
+            {% for i in car_cat %}
+            <div class="col-sm-2 col-xs-6 carClass" type="{{i.id}}" style="padding-top: 10px;">
+              <a href="./car_type_template.html">
+                  <div class="vehicle-item">
+                      <figure>
+                          <div class="vehicle"><img src="{{i.img.url}}"
+                                  alt="kompakt-avto-icare">
+                          </div>
+                          <figcaption>
+                              {{i.title}}
+                          </figcaption>
+                      </figure>
+                  </div>
+              </a>
+          </div>
+            {% endfor %}
+              
+
+          </div>
+      </div>
+      <a href="//127.0.0.1:5500/all.html" style="text-decoration: underline;" class="text-center">
+          <h2><span class="glyphicon glyphicon-arrow-right"></span> Bütün kirayə avtomobillər</h2>
+      </a>
+      <br>
+      <div>
+        <hr>
+        <h3 class="text-center">Sürücü ilə avtomobil kirayəsi</h3>
+        {{about.text|safe}}
+        <hr>
+      </div>
+
+
+
+      <div class="row car_on_page">
+          <h2 class="text-center">Ən çox seçilən kirayə avtomobillər<br>&nbsp;</h2>
+
+          
+          
+          {% for car in cars %}
+         <!-- INDIVIDUAL CAR -->
+          <div class="col-sm-4">
+            <div class="thumbnail no-border no-padding thumbnail-car-card hoverTable" style="position:relative;">
+              <div class="media">
+                <img class="img-responsive" src="{{car.img.url}}" alt="{{car.title}}" style="width: 75%; text-align: center;margin: 0 auto;">
+              </div>
+              <div class="caption text-center">
+                <h4 class="caption-title">
+                  <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                    <div itemprop="name">
+                      <a href="#">{{car.title}}</a>
+                    </div>
+                  <!--<span itemprop="ratingValue">5</span> (100%)
+                    <span itemprop="ratingCount">9</span> votes-->  
+                    <meta itemprop="bestRating" content="5">
+                    <meta itemprop="worstRating" content="1">
+                    <div itemprop="itemReviewed" itemscope="" itemtype="http://schema.org/CreativeWork"></div>
+                </h4>
+                <div class="buttons">
+                  <a class="btn btn-theme ripple-effect carrent" href="{{car.get_absolute_url}}">
+                    İcarə et
+                  </a>
+                </div>
+                <table class="table">
+                  <tbody>
+                    <tr class="hidden-lg">
+                      <td>
+                        <i class="fas fa-thumbs-up"></i>
+                        <br>{{car.catagory.title}}</td>
+                      <td><i class="fas fa-tachometer-alt"></i><br> {{car.fuel}}</td>
+                      <td><i class="transmission"></i><br> {{car.type_of_transmissions}}</td>
+                      <td><i class="fa fa-cogs"></i><br> {{car.engine}}</td>
+                    </tr>
+                    <tr class="hidden-lg">
+                      <td><i class="fa fa-car"></i><br> {{car.year}}</td>
+                      <td><i class="fa fa-suitcase"></i><br> {{car.luggage}} baqaj.</td>
+                      <td><i class="fa fa-male"></i><br> {{car.seat_count}} şəxs</td>
+                      <td><i class="door"></i><br> {{car.door}} qapı
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="car-info" style="color: #959595">2-3dək
+                        <p style="display: inline; color: #000;" class="">{{car.price_2_3}}</p>
+                        <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                        <i class="manat" style="opacity : 1"></i>
+                      </td>
+                      <td colspan="2" class="car-info" style="color: #959595">4-7dək
+                        <p style="display: inline; color: #000;" class="">{{car.price_4_7}}</p>
+                        <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                        <i class="manat" style="opacity : 1"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" class="car-info" style="color: #959595">7-15dək
+                        <p style="display: inline; color: #000;" class="">{{car.price_7_15}}</p>
+                        <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                        <i class="manat" style="opacity : 1"></i>
+                      </td>
+                      <td colspan="2" class="car-info" style="color: #959595;">16-30dək
+                        <p style="display: inline; color: #000;" class="">{{car.price_16_30}}</p>
+                        <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                        <i class="manat" style="opacity : 1"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" class="car-info" style="color: #959595;">30-dan çox
+                        <p style="display: inline; color: #000;" class="">{{car.price_30}}</p>
+                        <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                        <i class="manat" style="opacity : 1"></i>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="4" class="car-info" style="color: #959595;">
+                        <p style="color : red; font-size: 14px;">
+                          <span class="glyphicon glyphicon glyphicon-info-sign" style="opacity : 1"></span>
+                          Qiymətlər bir gün üçün qeyd edilib
+                        </p>
+                        <p style="color : red; font-size: 14px;">
+                          <span class="glyphicon glyphicon glyphicon-info-sign" style="opacity : 1"></span>
+                          Minimal icarə müddəti 2 gün
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                
+                {% if car.star_count == 1 %}
+                <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+                {% elif  car.star_count == 2 %} 
+                <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+                {% elif  car.star_count == 3 %} 
+                <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#3"><span class="glyphicon glyphicon-star"></span></a>
+                {% elif  car.star_count == 4 %}
+                <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#3"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#4"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#5"><span class="glyphicon glyphicon-star"></span></a>
+                {% elif  car.star_count == 5 %}  
+                <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#3"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#4"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#5"><span class="glyphicon glyphicon-star"></span></a>
+                {% endif %}
+                    
+
+                </div>
+                <table class="table tableOwn showTable" style="position: absolute; top: 0; left:0; display: none; background-color: #ffc107; font-color: #000000; opacity: 0.9">
+                  <tbody>
+                    <tr>
+                      <td><i class="fas fa-thumbs-up"></i><br> Kompakt</td>
+                      <td><i class="fas fa-tachometer-alt"></i><br> {{car.fuel}}</td>
+                      <td><i class="transmission"></i><br> {{car.type_of_transmissions}}</td>
+                      <td><i class="fa fa-cogs"></i><br> {{car.engine}}</td>
+                    </tr>
+                    <tr>
+                      <td><i class="fa fa-car"></i><br> {{car.year}}</td>
+                      <td><i class="fa fa-suitcase"></i><br> {{car.luggage}} baqaj.</td>
+                      <td><i class="fa fa-male"></i><br> {{car.seat_count}}şəxs</td>
+                      <td><i class="door"></i><br> {{car.door}}qapı
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- INDIVIDUAL CAR -->
+          {% endfor %}
+              
+          
+                      
+            <hr>
+            <a href="./all.html" style="text-decoration: underline;" class="text-center">
+              <h2>
+              <span class="glyphicon glyphicon-arrow-right"></span>
+              </span> Bütün kirayə avtomobillər</h2>
+            </a>
+          </div>
+        </div>
+</section>
+
+<!-- <section class="campaign" id="campaign">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2>Kampaniya</h2>
+          </div>
+      </div>
+      <div class="row martop2">
+          <div class="col-sm-4">
+              <div class="thumbnail no-border no-padding thumbnail-car-card">
+                  <div class="media mediaOwnHeight">
+                      <img class="img-responsive" src="./uploads/campaign/18672.jpg"
+                          alt="Automile uploads/campaign/18672.jpg">
+                  </div>
+                  <div class="caption text-center">
+                      <h4 class="caption-title"><a href="#">Uşaq oturacağı</a></h4>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="thumbnail no-border no-padding thumbnail-car-card">
+                  <div class="media mediaOwnHeight">
+                      <img class="img-responsive" src="./uploads/campaign/63878.jpg"
+                          alt="Automile uploads/campaign/63878.jpg">
+                  </div>
+                  <div class="caption text-center">
+                      <h4 class="caption-title"><a href="#">Uşaq kolyaskası</a></h4>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="thumbnail no-border no-padding thumbnail-car-card">
+                  <div class="media mediaOwnHeight">
+                      <img class="img-responsive" src="./uploads/campaign/68464.jpg"
+                          alt="Automile uploads/campaign/68464.jpg">
+                  </div>
+                  <div class="caption text-center">
+                      <h4 class="caption-title"><a href="#">Wi-fi router</a></h4>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section> -->
+
+<section class="success" id="about">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2>Haqqımızda</h2>
+          </div>
+      </div>
+      <div class="row martop text-center">
+          <div id="map-canvas">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12247.88271476469!2d48.061117129082305!3d39.874894688590466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403c75e2ab126e95%3A0x2dcb4f16718b9c95!2zRS4gxLBicmFoaW1vdiBhZMSxbmEgxZ_JmWjJmXIgNCBzYXlsxLEgdGFtIG9ydGEgbcmZa3TJmWI!5e0!3m2!1str!2s!4v1626077361530!5m2!1str!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <br>
+          <hr>
+          <div class="row col-xs-offset-1 col-xs-10">
+              <div class="reviews row martop" id="message1">
+                
+                {% for x in quotes  %}
+                <div class="col-xs-12">
+                  <div class="jumbotron" style="padding: 10px;">
+                      <p class="help-block">
+                         {{x.text}}<br/><b> - {{x.author}}</b>
+                      </p>
+                      <hr>
+                  </div>
+              </div>
+                {% endfor %}
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="contact" style="padding-bottom: 0px;">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2>Əlaqə</h2>
+          </div>
+      </div>
+      <div class="row martop" id="contact">
+          <form method="POST" action="{% url 'contact' %}" accept-charset="UTF-8" name="sentMessage" id="contactForm" novalidate="novalidate">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{message}}
+              </div>
+            {% endfor %}
+        {% endif %}
+            {% csrf_token %}
+              <div class="col-lg-8 col-lg-offset-2">
+                  <div class="row control-group">
+                      <div class="form-group col-xs-12 floating-label-form-group controls">
+                          <label>Ad</label>
+                          {{form.fullname}}
+                          <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+                  <div class="row control-group">
+                      <div class="form-group col-xs-12 floating-label-form-group controls">
+                          <label>Email ünvanı</label>
+                          {{form.email}}
+                          <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+                  <div class="row control-group">
+                      <div class="form-group col-xs-12 floating-label-form-group controls">
+                          <label>Telefon</label>
+                          {{form.phone}}
+                          <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+                  <div class="row control-group">
+                      <div class="form-group col-xs-12 floating-label-form-group controls">
+                          <label>Mətn</label>
+                              {{form.text}}
+                          <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+                  <br>
+                  <div id="success"></div>
+                  <div class="row">
+                      <div class="form-group col-xs-6">
+                        <input type="submit" value="Göndər" id="submitBtn" class="btn btn-success btn-lg pull-right sendContact">
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+
+{% endblock content %}

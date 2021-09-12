@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="class" class="martop2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 style="font-size: 3rem">Şərtlər</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <br>
+                <h4>Tələb olunan sənədlər</h4>
+                {{condition.req_documents|safe}}
+                {{condition.text|safe}}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

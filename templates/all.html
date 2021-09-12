@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="class" class="martop2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1>Bütün kirayə avtomobillər</h1>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      {% for car in cars %}
+      <!-- INDIVIDUAL CAR -->
+       <div class="col-sm-4">
+         <div class="thumbnail no-border no-padding thumbnail-car-card hoverTable" style="position:relative;">
+           <div class="media">
+             <img class="img-responsive" src="{{car.img.url}}" alt="{{car.title}}" style="width: 75%; text-align: center;margin: 0 auto;">
+           </div>
+           <div class="caption text-center">
+             <h4 class="caption-title">
+               <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                 <div itemprop="name">
+                   <a href="#">{{car.title}}</a>
+                 </div>
+               <!--<span itemprop="ratingValue">5</span> (100%)
+                 <span itemprop="ratingCount">9</span> votes-->  
+                 <meta itemprop="bestRating" content="5">
+                 <meta itemprop="worstRating" content="1">
+                 <div itemprop="itemReviewed" itemscope="" itemtype="http://schema.org/CreativeWork"></div>
+             </h4>
+             <div class="buttons">
+               <a class="btn btn-theme ripple-effect carrent" href="{{car.get_absolute_url}}">
+                 İcarə et
+               </a>
+             </div>
+             <table class="table">
+               <tbody>
+                 <tr class="hidden-lg">
+                   <td>
+                     <i class="fas fa-thumbs-up"></i>
+                     <br>{{car.catagory.title}}</td>
+                   <td><i class="fas fa-tachometer-alt"></i><br> {{car.fuel}}</td>
+                   <td><i class="transmission"></i><br> {{car.type_of_transmissions}}</td>
+                   <td><i class="fa fa-cogs"></i><br> {{car.engine}}</td>
+                 </tr>
+                 <tr class="hidden-lg">
+                   <td><i class="fa fa-car"></i><br> {{car.year}}</td>
+                   <td><i class="fa fa-suitcase"></i><br> {{car.luggage}} baqaj.</td>
+                   <td><i class="fa fa-male"></i><br> {{car.seat_count}} şəxs</td>
+                   <td><i class="door"></i><br> {{car.door}} qapı
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="2" class="car-info" style="color: #959595">2-3dək
+                     <p style="display: inline; color: #000;" class="">{{car.price_2_3}}</p>
+                     <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                     <i class="manat" style="opacity : 1"></i>
+                   </td>
+                   <td colspan="2" class="car-info" style="color: #959595">4-7dək
+                     <p style="display: inline; color: #000;" class="">{{car.price_4_7}}</p>
+                     <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                     <i class="manat" style="opacity : 1"></i>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="2" class="car-info" style="color: #959595">7-15dək
+                     <p style="display: inline; color: #000;" class="">{{car.price_7_15}}</p>
+                     <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                     <i class="manat" style="opacity : 1"></i>
+                   </td>
+                   <td colspan="2" class="car-info" style="color: #959595;">16-30dək
+                     <p style="display: inline; color: #000;" class="">{{car.price_16_30}}</p>
+                     <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                     <i class="manat" style="opacity : 1"></i>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="4" class="car-info" style="color: #959595;">30-dan çox
+                     <p style="display: inline; color: #000;" class="">{{car.price_30}}</p>
+                     <p style="display: inline; color: #ff0000;" class="hidden"> 0</p>
+                     <i class="manat" style="opacity : 1"></i>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="4" class="car-info" style="color: #959595;">
+                     <p style="color : red; font-size: 14px;">
+                       <span class="glyphicon glyphicon glyphicon-info-sign" style="opacity : 1"></span>
+                       Qiymətlər bir gün üçün qeyd edilib
+                     </p>
+                     <p style="color : red; font-size: 14px;">
+                       <span class="glyphicon glyphicon glyphicon-info-sign" style="opacity : 1"></span>
+                       Minimal icarə müddəti 2 gün
+                     </p>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+             <div>
+             
+             {% if car.star_count == 1 %}
+             <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+             {% elif  car.star_count == 2 %} 
+             <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+             {% elif  car.star_count == 3 %} 
+             <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#3"><span class="glyphicon glyphicon-star"></span></a>
+             {% elif  car.star_count == 4 %}
+             <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#3"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#4"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#5"><span class="glyphicon glyphicon-star"></span></a>
+             {% elif  car.star_count == 5 %}  
+             <a href="#1"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#2"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#3"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#4"><span class="glyphicon glyphicon-star"></span></a>
+             <a href="#5"><span class="glyphicon glyphicon-star"></span></a>
+             {% endif %}
+                 
+
+             </div>
+             <table class="table tableOwn showTable" style="position: absolute; top: 0; left:0; display: none; background-color: #ffc107; font-color: #000000; opacity: 0.9">
+               <tbody>
+                 <tr>
+                   <td><i class="fas fa-thumbs-up"></i><br> Kompakt</td>
+                   <td><i class="fas fa-tachometer-alt"></i><br> {{car.fuel}}</td>
+                   <td><i class="transmission"></i><br> {{car.type_of_transmissions}}</td>
+                   <td><i class="fa fa-cogs"></i><br> {{car.engine}}</td>
+                 </tr>
+                 <tr>
+                   <td><i class="fa fa-car"></i><br> {{car.year}}</td>
+                   <td><i class="fa fa-suitcase"></i><br> {{car.luggage}} baqaj.</td>
+                   <td><i class="fa fa-male"></i><br> {{car.seat_count}}şəxs</td>
+                   <td><i class="door"></i><br> {{car.door}}qapı
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+       <!-- INDIVIDUAL CAR -->
+       {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
